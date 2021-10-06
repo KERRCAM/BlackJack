@@ -5,13 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
     int cards[] = new int[53];
-    for (int i = 1; i < 11; i++) {
+    int l = 0;
+    for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 4; j++) {
-            cards[i-1] = i;
+            cards[l] = i+1;
+            l++;
+
         }
     }
 
-    for (int i = 41; i <53; i++) {
+    for (int i = 40; i <52; i++) {
         int JacksQueensKings = 10;
         cards[i] = JacksQueensKings;
     }
@@ -20,12 +23,9 @@ public class Main {
     Random random  = new Random();
     Scanner input = new Scanner(System.in);
     int CardDrawn = random.nextInt(52);
-    //System.out.println(CardDrawn);
-    //System.out.println(cards[CardDrawn]);
+    System.out.println(CardDrawn);
+    System.out.println(cards[CardDrawn]);
 
-    for (int i = 0; i <53 ; i++) {
-        System.out.println(cards[i]);
-    }
 
 
     }
