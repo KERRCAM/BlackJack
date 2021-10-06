@@ -41,9 +41,40 @@ public class Main{
             System.out.println("your final total is " + UserTotal);
             UserTurn = true;
         }
-
-
     }
+
+    int CompCardDrawnOne = random.nextInt(52);
+    int CompCardDrawnTwo = random.nextInt(52);
+    int CompTotal = (CompCardDrawnOne + CompCardDrawnTwo);
+    int UserScore = 0;
+    int CompScore = 0;
+
+    if (UserTotal > 21) {
+        UserScore = (UserTotal - 21);
+    }
+    if (UserTotal < 21) {
+        UserScore = (21 - UserTotal);
+    }
+
+    if (CompTotal > 21) {
+        CompScore = (CompTotal - 21);
+    }
+    if (CompTotal < 21) {
+        CompScore = (21 - CompTotal);
+    }
+
+    if (CompTotal > UserTotal) {
+        System.out.println("well done the computer had a total of " + CompTotal + " so with your total of " + UserTotal + " you win");
+    }
+
+    if (CompTotal < UserTotal) {
+        System.out.println("with the computers total of " + CompTotal + " and your total of " + UserTotal + " you lose");
+    }
+
+    if (CompTotal == UserTotal) {
+        System.out.println("bpth you and the computer got a total of " + CompTotal + "so its a draw");
+    }
+
 
 
     }
