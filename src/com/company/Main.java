@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
     int cards[] = new int[53];
     for (int i = 1; i < 11; i++) {
-        for (int j = 1; j < 5; j++) {
-            cards[i] = i;
+        for (int j = 0; j < 4; j++) {
+            cards[i-1] = i;
         }
     }
 
