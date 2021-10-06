@@ -22,29 +22,35 @@ public class Main{
     Random random  = new Random();
     Scanner input = new Scanner(System.in);
     int UserDraws = 2;
-    int CardDrawnOne = random.nextInt(52);
-    int CardDrawnTwo = random.nextInt(52);
+    int IndexCardDrawnOne = random.nextInt(52);
+    int CardDrawnOne = cards[IndexCardDrawnOne];
+    int IndexCardDrawnTwo = random.nextInt(52);
+    int CardDrawnTwo = cards[IndexCardDrawnTwo];
     int UserTotal = (CardDrawnOne + CardDrawnTwo);
     System.out.println("you drew a " + CardDrawnOne + " and a " + CardDrawnTwo + ". Your total is: " + UserTotal);
 
     boolean UserTurn = false;
     while(UserTurn == false) {
-        System.out.println("would you like to drawn again? (yes or no): ");
-        String DrawAgain = input.nextLine();
-        if (DrawAgain == "yes") {
-            int CardDrawnExtra = random.nextInt(52);
+        System.out.println("would you like to drawn again? (1 for yes or 0 for no): ");
+        int DrawAgain = input.nextInt();
+        if (DrawAgain == 1) {
+            int IndexCardDrawnExtra = random.nextInt(52);
+            int CardDrawnExtra = cards[IndexCardDrawnExtra];
             UserTotal = UserTotal + CardDrawnExtra;
+            System.out.println("you drew a " + CardDrawnExtra);
             System.out.println("your new total is " + UserTotal);
             UserDraws = UserDraws+1;
         }
-        if (DrawAgain == "no") {
-            System.out.println("your final total is " + UserTotal);
+        if (DrawAgain == 0) {
             UserTurn = true;
+            System.out.println("your final total is " + UserTotal);
         }
     }
 
-    int CompCardDrawnOne = random.nextInt(52);
-    int CompCardDrawnTwo = random.nextInt(52);
+    int IndexCompCardDrawnOne = random.nextInt(52);
+    int CompCardDrawnOne = cards[IndexCompCardDrawnOne];
+    int IndexCompCardDrawnTwo = random.nextInt(52);
+    int CompCardDrawnTwo = cards[IndexCompCardDrawnTwo];
     int CompTotal = (CompCardDrawnOne + CompCardDrawnTwo);
     int UserScore = 0;
     int CompScore = 0;
@@ -63,16 +69,16 @@ public class Main{
         CompScore = (21 - CompTotal);
     }
 
-    if (CompTotal > UserTotal) {
+    if (CompScore > UserScore) {
         System.out.println("well done the computer had a total of " + CompTotal + " so with your total of " + UserTotal + " you win");
     }
 
-    if (CompTotal < UserTotal) {
+    if (CompScore < UserScore) {
         System.out.println("with the computers total of " + CompTotal + " and your total of " + UserTotal + " you lose");
     }
 
-    if (CompTotal == UserTotal) {
-        System.out.println("bpth you and the computer got a total of " + CompTotal + "so its a draw");
+    if (CompScore == UserScore) {
+        System.out.println("both you and the computer got a total of " + CompTotal + " so its a draw");
     }
 
 
